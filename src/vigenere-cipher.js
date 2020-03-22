@@ -1,6 +1,6 @@
 class VigenereCipheringMachine {
-    constructor (isDirect) {
-        this.isDirect = isDirect;
+    constructor (direction) {
+        this.direction = direction === false ? 'reverse' : 'direct';
     }
 
     encrypt(input, key) {
@@ -31,8 +31,8 @@ class VigenereCipheringMachine {
 
             res.push(encrypted);
         }
-        console.log(res);
-        if (this.isDirect) {
+        
+        if (this.direction === 'reverse') {
             res.reverse();
         }
 
@@ -68,7 +68,7 @@ class VigenereCipheringMachine {
             res.push(decrypted);
         }
 
-        if (this.isDirect) {
+        if (this.direction === 'reverse') {
             res.reverse();
         }
 
